@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.input-file-trigger {
+  width:30%
+  display: block;
+  padding: 14px 45px;
+  background: #39D2B4;
+  color: #fff;
+  font-size: 1em;
+  transition: all .4s;
+  cursor: pointer;
+  margin-left:10%;
+}
+
+
+</style>
+</head>
+<body>
+
+<h2>PDF File Uploaded</h2>
+
+<table>
+  <tr>
+    <th>Sr NO</th>
+    <th width="80%"> PDF Name</th>
+  </tr>
+{%for i in range(0, len)%}
+<!-- table rows -->
+<tr>
+    <td>{{i+1}}</td>
+    <td width="95%">{{result[i]}}</td>
+</tr>
+{%endfor%}
+
+</table>
+
+
+<div id="submit">
+    <a href="/pdf2excel">
+        <input class="input-file-trigger" type = "submit"/>
+    </a>
+    <a href="/">
+        <button class="input-file-trigger">Back</button>
+    </a>
+</div>
+</body>
+
+</html>
+

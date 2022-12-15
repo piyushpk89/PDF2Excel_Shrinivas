@@ -1,0 +1,23 @@
+> From:	docelm at web.de [SMTP:docelm at web.de]
+> I´m trying to unprotect a word document with python for reading all form
+> fields.
+> But it doesn´t work.
+>
+> Here´s a simple code sample:
+>
+>
+>     wordapp   = win32com.client.Dispatch("Word.Application")
+>     docfile   = wordapp.Documents.Open(file)
+>
+>     protecttype = docfile.ProtectionType    # protected delivers 2
+>     docfile.Unprotect
+>     protecttype = docfile.ProtectionType    # anyway 2
+>
+>     # do some work
+>
+>     docfile.Protect
+>     protecttype = docfile.ProtectionType    # anyway 2
+
+Just a wild guess - docfile.Unprotect looks like a it might well be a
+function, but you aren't *calling* it. Try using "docfile.Unprotect()"
+instead.
